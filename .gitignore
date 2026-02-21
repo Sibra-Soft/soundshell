@@ -1,0 +1,7 @@
+*.res
+*/.vs/*
+desktop.ini
+/obj/*
+/bin/*
+*.user
+*.vs/
