@@ -1,2 +1,2 @@
-# soundshell
-SoundShell brengt de kracht van een klassieke muziekspeler naar de terminal, minimalistisch, snel en to the point.
+# SoundShell
+SoundShell is a lightweight, console-based audio player designed for simplicity, performance, and a nostalgic text-mode experience. Built with a classic terminal-style interface, SoundShell focuses on efficient media playback without unnecessary graphical overhead.
