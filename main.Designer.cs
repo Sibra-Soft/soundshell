@@ -1,14 +1,13 @@
 namespace SoundShell {
     using System;
     using Terminal.Gui;
-    
-    
+        
     public partial class Main : Terminal.Gui.Window {
         private Terminal.Gui.ColorScheme blackOnWhite;
         private Terminal.Gui.ColorScheme blueOnBlack;
         private Terminal.Gui.ColorScheme whiteOnBlue;
         private Terminal.Gui.ColorScheme greenOnBlack;
-        private Terminal.Gui.Label label;
+        private Terminal.Gui.Label labelTitle;
         private Terminal.Gui.Label label23;
         private Terminal.Gui.Label label2;
         private Terminal.Gui.Label labelFilename;
@@ -18,37 +17,21 @@ namespace SoundShell {
         private Terminal.Gui.Label labelBitrate;
         private Terminal.Gui.Label label5;
         private Terminal.Gui.Label labelSmaplerate;
-        
         private Terminal.Gui.Label label6;
-        
         private Terminal.Gui.Label labelChannel;
-        
         private Terminal.Gui.Label label12;
-        
         private Terminal.Gui.Label label13;
-        
         private Terminal.Gui.Label label14;
-        
         private Terminal.Gui.Label label192;
-        
         private Terminal.Gui.Label label21;
-        
         private Terminal.Gui.Label label19;
-        
         private Terminal.Gui.Label label20;
-        
         private Terminal.Gui.Label label193;
-        
         private Terminal.Gui.Label label22;
-        
         private Terminal.Gui.Label label15;
-        
         private Terminal.Gui.Label labelCurrentFrame;
-        
         private Terminal.Gui.Label label17;
-        
         private Terminal.Gui.Label labelCurrentMediaTime;
-
         private Terminal.Gui.FileDialog fileDialog;
 
         private void InitializeComponent() {
@@ -76,7 +59,7 @@ namespace SoundShell {
             this.labelFilename = new Terminal.Gui.Label();
             this.label2 = new Terminal.Gui.Label();
             this.label23 = new Terminal.Gui.Label();
-            this.label = new Terminal.Gui.Label();
+            this.labelTitle = new Terminal.Gui.Label();
             this.fileDialog = new Terminal.Gui.FileDialog();
             this.blackOnWhite = new Terminal.Gui.ColorScheme();
             this.blackOnWhite.Normal = new Terminal.Gui.Attribute(Terminal.Gui.Color.White, Terminal.Gui.Color.Black);
@@ -116,22 +99,20 @@ namespace SoundShell {
             this.Border.DrawMarginFrame = false;
             this.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Title = "";
-            this.label.Width = Dim.Fill(0);
-            this.label.Height = 1;
-            this.label.X = 0;
-            this.label.Y = 0;
-            this.label.Visible = true;
-            this.label.ColorScheme = this.whiteOnBlue;
-            this.label.Data = "label";
-            this.label.Text = "Sound Shell Version 1.0 -- Sibra-Soft 2026";
-            this.label.TextAlignment = Terminal.Gui.TextAlignment.Centered;
-            this.Add(this.label);
+            this.labelTitle.Width = Dim.Fill(0);
+            this.labelTitle.Height = 1;
+            this.labelTitle.X = 0;
+            this.labelTitle.Y = 0;
+            this.labelTitle.Visible = true;
+            this.labelTitle.ColorScheme = this.whiteOnBlue;
+            this.labelTitle.Text = "SoundShell Version 1.0.0 -- Sibra-Soft 2026";
+            this.labelTitle.TextAlignment = Terminal.Gui.TextAlignment.Centered;
+            this.Add(this.labelTitle);
             this.label23.Width = 8;
             this.label23.Height = 1;
             this.label23.X = 1;
             this.label23.Y = 4;
             this.label23.Visible = true;
-            this.label23.Data = "label23";
             this.label23.Text = "Media:";
             this.label23.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label23);
@@ -140,7 +121,6 @@ namespace SoundShell {
             this.label2.X = 3;
             this.label2.Y = 5;
             this.label2.Visible = true;
-            this.label2.Data = "label2";
             this.label2.Text = "Filename";
             this.label2.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label2);
@@ -150,7 +130,6 @@ namespace SoundShell {
             this.labelFilename.Y = 5;
             this.labelFilename.Visible = true;
             this.labelFilename.ColorScheme = this.greenOnBlack;
-            this.labelFilename.Data = "labelFilename";
             this.labelFilename.Text = ": No file loaded";
             this.labelFilename.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelFilename);
@@ -159,7 +138,6 @@ namespace SoundShell {
             this.label3.X = 3;
             this.label3.Y = 6;
             this.label3.Visible = true;
-            this.label3.Data = "label3";
             this.label3.Text = "Length";
             this.label3.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label3);
@@ -169,7 +147,6 @@ namespace SoundShell {
             this.labelFileLength.Y = 6;
             this.labelFileLength.Visible = true;
             this.labelFileLength.ColorScheme = this.greenOnBlack;
-            this.labelFileLength.Data = "labelFileLength";
             this.labelFileLength.Text = ": -";
             this.labelFileLength.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelFileLength);
@@ -178,7 +155,6 @@ namespace SoundShell {
             this.label4.X = 3;
             this.label4.Y = 7;
             this.label4.Visible = true;
-            this.label4.Data = "label4";
             this.label4.Text = "Bitrate";
             this.label4.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label4);
@@ -188,7 +164,6 @@ namespace SoundShell {
             this.labelBitrate.Y = 7;
             this.labelBitrate.Visible = true;
             this.labelBitrate.ColorScheme = this.greenOnBlack;
-            this.labelBitrate.Data = "labelBitrate";
             this.labelBitrate.Text = ": -";
             this.labelBitrate.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelBitrate);
@@ -197,7 +172,6 @@ namespace SoundShell {
             this.label5.X = 3;
             this.label5.Y = 8;
             this.label5.Visible = true;
-            this.label5.Data = "label5";
             this.label5.Text = "Samplerate";
             this.label5.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label5);
@@ -207,7 +181,6 @@ namespace SoundShell {
             this.labelSmaplerate.Y = 8;
             this.labelSmaplerate.Visible = true;
             this.labelSmaplerate.ColorScheme = this.greenOnBlack;
-            this.labelSmaplerate.Data = "labelSmaplerate";
             this.labelSmaplerate.Text = ": -";
             this.labelSmaplerate.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelSmaplerate);
@@ -216,7 +189,6 @@ namespace SoundShell {
             this.label6.X = 3;
             this.label6.Y = 9;
             this.label6.Visible = true;
-            this.label6.Data = "label6";
             this.label6.Text = "Channels";
             this.label6.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label6);
@@ -226,7 +198,6 @@ namespace SoundShell {
             this.labelChannel.Y = 9;
             this.labelChannel.Visible = true;
             this.labelChannel.ColorScheme = this.greenOnBlack;
-            this.labelChannel.Data = "labelChannel";
             this.labelChannel.Text = ": -";
             this.labelChannel.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelChannel);
@@ -235,7 +206,6 @@ namespace SoundShell {
             this.label12.X = 1;
             this.label12.Y = 16;
             this.label12.Visible = true;
-            this.label12.Data = "label12";
             this.label12.Text = "Controls:";
             this.label12.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label12);
@@ -244,7 +214,6 @@ namespace SoundShell {
             this.label13.X = 3;
             this.label13.Y = 17;
             this.label13.Visible = true;
-            this.label13.Data = "label13";
             this.label13.Text = "ESC - ";
             this.label13.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label13);
@@ -254,73 +223,50 @@ namespace SoundShell {
             this.label14.Y = 17;
             this.label14.Visible = true;
             this.label14.ColorScheme = this.blueOnBlack;
-            this.label14.Data = "label14";
             this.label14.Text = "Quit";
             this.label14.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label14);
-            this.label192.Width = 6;
-            this.label192.Height = 1;
-            this.label192.X = 3;
-            this.label192.Y = 18;
-            this.label192.Visible = true;
-            this.label192.Data = "label192";
-            this.label192.Text = "F8  - ";
-            this.label192.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.Add(this.label192);
-            this.label21.Width = 3;
-            this.label21.Height = 1;
-            this.label21.X = 9;
-            this.label21.Y = 18;
-            this.label21.Visible = true;
-            this.label21.ColorScheme = this.blueOnBlack;
-            this.label21.Data = "label21";
-            this.label21.Text = "Quit without stopping";
-            this.label21.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.Add(this.label21);
             this.label19.Width = 6;
             this.label19.Height = 1;
             this.label19.X = 3;
-            this.label19.Y = 19;
+            this.label19.Y = 18;
             this.label19.Visible = true;
-            this.label19.Data = "label19";
             this.label19.Text = "F2  - ";
             this.label19.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label19);
             this.label20.Width = 3;
             this.label20.Height = 1;
             this.label20.X = 9;
-            this.label20.Y = 19;
+            this.label20.Y = 18;
             this.label20.Visible = true;
             this.label20.ColorScheme = this.blueOnBlack;
-            this.label20.Data = "label20";
             this.label20.Text = "Load Media File";
             this.label20.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label20);
+
             this.label193.Width = 6;
             this.label193.Height = 1;
             this.label193.X = 3;
-            this.label193.Y = 21;
+            this.label193.Y = 20;
             this.label193.Visible = true;
-            this.label193.Data = "label193";
             this.label193.Text = "P   - ";
             this.label193.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label193);
             this.label22.Width = 4;
             this.label22.Height = 1;
             this.label22.X = 9;
-            this.label22.Y = 21;
+            this.label22.Y = 20;
             this.label22.Visible = true;
             this.label22.ColorScheme = this.blueOnBlack;
-            this.label22.Data = "label22";
             this.label22.Text = "Pause";
             this.label22.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label22);
+            
             this.label15.Width = 7;
             this.label15.Height = 1;
             this.label15.X = 1;
             this.label15.Y = Pos.AnchorEnd(2);
             this.label15.Visible = true;
-            this.label15.Data = "label15";
             this.label15.Text = "Frame:";
             this.label15.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label15);
@@ -330,7 +276,6 @@ namespace SoundShell {
             this.labelCurrentFrame.Y = Pos.AnchorEnd(2);
             this.labelCurrentFrame.Visible = true;
             this.labelCurrentFrame.ColorScheme = this.blueOnBlack;
-            this.labelCurrentFrame.Data = "labelCurrentFrame";
             this.labelCurrentFrame.Text = "0";
             this.labelCurrentFrame.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelCurrentFrame);
@@ -339,7 +284,6 @@ namespace SoundShell {
             this.label17.X = 16;
             this.label17.Y = Pos.AnchorEnd(2);
             this.label17.Visible = true;
-            this.label17.Data = "label17";
             this.label17.Text = "Time:";
             this.label17.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label17);
@@ -349,7 +293,6 @@ namespace SoundShell {
             this.labelCurrentMediaTime.Y = Pos.AnchorEnd(2);
             this.labelCurrentMediaTime.Visible = true;
             this.labelCurrentMediaTime.ColorScheme = this.blueOnBlack;
-            this.labelCurrentMediaTime.Data = "labelCurrentMediaTime";
             this.labelCurrentMediaTime.Text = "0:00";
             this.labelCurrentMediaTime.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.labelCurrentMediaTime);
