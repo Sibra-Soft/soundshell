@@ -23,7 +23,10 @@ jobs:
           
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
-  
+        
+      - name: Install NSIS
+        uses: negrutiu/nsis-install@v2
+        
       - name: Install dependencies
         run: dotnet restore
         
@@ -42,30 +45,9 @@ jobs:
           /p:PublishProfile=FolderProfile.pubxml
           /p:ApplicationVersion=${{ env.VERSION }}
           /p:AssemblyVersion=${{ env.VERSION }}
-                
-      - name: Upload published output
-        uses: actions/upload-artifact@v4
-        with:
-          name: SoundShell
-          path: |
-            ${{ github.workspace }}/bin/Publish/
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    
-    steps:
-      - name: Install NSIS
-        uses: negrutiu/nsis-install@v2
-        
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: SoundShell
-          path: app
           
       - name: Build installer
-        run: makensis ./app/setup/sound_shell_setup.nsi
+        run: makensis ./setup/sound_shell_setup.nsi
         
       - name: Upload setup file to GitHub Release
         uses: actions/upload-release-asset@v1
@@ -73,11 +55,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./app/setup/sound_shell_windows_setup.exe
+          asset_path: ./setup/sound_shell_windows_setup.exe
           asset_name: sound_shell_windows_setup.exe
           asset_content_type: application/exe
-          
-      - name: Delete used artifact(s)
-        uses: geekyeggo/delete-artifact@v5
-        with:
-            name: SoundShell
