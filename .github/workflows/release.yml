@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/app/
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0
+          
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+  
+      - name: Install dependencies
+        run: dotnet restore
+        
+      - name: Test with .NET
+        run: dotnet test
+        
+      - name: Extract version from tag
+        shell: bash
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "VERSION=$VERSION.0" >> $GITHUB_ENV
+          
+      - name: Publish
+        run: > 
+          msbuild.exe /target:publish
+          /p:PublishProfile=FolderProfile.pubxml
+          /p:ApplicationVersion=${{ env.VERSION }}
+          /p:AssemblyVersion=${{ env.VERSION }}
+                
+      - name: Upload published output
+        uses: actions/upload-artifact@v4
+        with:
+          name: SoundShell
+          path: |
+            ${{ github.workspace }}/app/bin/Publish/
