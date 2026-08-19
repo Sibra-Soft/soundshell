@@ -10,7 +10,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ${{ github.workspace }}/app/
+        working-directory: ${{ github.workspace }}/
     
     steps:
       - name: Checkout repository
@@ -48,4 +48,4 @@ jobs:
         with:
           name: SoundShell
           path: |
-            ${{ github.workspace }}/app/bin/Publish/
+            ${{ github.workspace }}/bin/Publish/
